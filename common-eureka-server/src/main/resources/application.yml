@@ -1,0 +1,18 @@
+management:
+  server:
+    port: 4452
+spring:
+  application:
+    name: custom-service
+  cloud:
+    consul:
+      discovery:
+        tags: foo=bar, baz
+#        health-check-headers:
+#          X-Config-Token:
+#            - "6442e58b-d1ea-182e-cfa5-cf9cddef0722"
+#            - "Some other value"
+        healthCheckInterval: 15s
+        serviceName: ${spring.application.name}
+        healthCheckPath: ${management.server.servlet.context-path}/health
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
