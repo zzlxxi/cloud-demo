@@ -1,9 +1,13 @@
 management:
   server:
     port: 4452
+turbine:
+  aggregator:
+    clusterConfig: ${applications}
+  appConfig: ${applications}
 spring:
   application:
-    name: custom-service
+    name: consule-server-provider
   cloud:
     consul:
       discovery:
