@@ -1,6 +1,11 @@
 management:
   server:
     port: 4452
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+applications: consulhystrixclient
 turbine:
   aggregator:
     clusterConfig: ${applications}
